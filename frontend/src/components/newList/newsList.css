@@ -1,0 +1,5 @@
+.news-list {
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+}

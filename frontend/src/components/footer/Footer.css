@@ -1,0 +1,21 @@
+.footer {
+  width: 50%;
+  margin: 90px auto;
+  padding-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 150px;
+  font-size: 20px;
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+}
+
+.footer-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-link:hover {
+  color: #f5e3b0; /* Цвет при наведении, совпадает с акцентом в NewsItem */
+}

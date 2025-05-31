@@ -1,0 +1,92 @@
+.news-item {
+  background-color: #3c3d37;
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 16px 24px;
+  width: 50%;
+  margin: 10px auto;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.news-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.news-date {
+  font-size: 14px;
+  color: #a3af9e;
+  margin-top: 4px;
+}
+
+/* Расширенный вид */
+
+.news-title-expanded {
+  font-size: 30px;
+  font-weight: bold;
+  color: #f5e3b0;
+}
+.news-title-expanded:hover {
+  cursor: pointer;
+}
+
+.news-date-expanded {
+  font-size: 14px;
+  color: #adc3a6;
+  margin: 8px 0;
+}
+
+.news-content {
+  font-size: 18px;
+  color: #ffffff;
+  margin: 16px 0;
+}
+
+.news-label {
+  font-size: 16px;
+  color: #adc3a6;
+  margin-top: 16px;
+}
+
+.news-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.news-tag {
+  background-color: #555953;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 14px;
+  color: white;
+}
+
+.news-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  justify-content: flex-start;
+}
+
+.btn-share {
+  background-color: #f5e3b0;
+  color: black;
+  font-size: 16px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.btn-default {
+  background-color: #323332;
+  color: white;
+  font-size: 16px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+}

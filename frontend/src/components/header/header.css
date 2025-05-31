@@ -1,0 +1,31 @@
+.header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  background-color: transparent;
+}
+
+.eye-icon {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.header-text {
+  position: absolute;
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+}
+
+.header-text.left {
+  left: calc(50% - 200px / 2 - 250px);
+}
+
+.header-text.right {
+  right: calc(50% - 200px / 2 - 250px);
+}

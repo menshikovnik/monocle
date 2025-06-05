@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+feedparser
+trafilatura
+httpx
+sentence_transformers
+scikit-learn
+python-dotenv

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import "./header.css";
-import eyeIcon from "./../../assets/passiveEye.svg";
-import eyeHoverIcon from "../../assets/howerEye.svg";
+import eyeIcon from "../../assets/passiveEye.svg";
+import howerEye from "../../assets/howerEye.svg";
 import SignInModal from "../signInModal/SignInModal";
 import SignUpModal from "../signUpModal/SignUpModal";
 import SummaryModal from "../summaryModal/SummaryModal";
+import "./header.css"
 
 const Header = ({
   collapseAllNews,
@@ -32,7 +32,7 @@ const Header = ({
         </div>
 
         <img
-          src={isHovered ? eyeHoverIcon : eyeIcon}
+          src={isHovered ? howerEye : eyeIcon}
           alt="Eye Icon"
           className="eye-icon"
           onMouseEnter={() => setIsHovered(true)}

@@ -1,0 +1,102 @@
+databaseChangeLog:
+  - changeSet:
+      id: init-tables
+      author: nik
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: password_hash
+                  type: VARCHAR(255)
+              - column:
+                  name: created_at
+                  type: TIMESTAMP WITH TIME ZONE
+                  defaultValueComputed: CURRENT_TIMESTAMP
+
+        - createTable:
+            tableName: news_sources
+            columns:
+              - column: { name: id, type: UUID, constraints: { primaryKey: true, nullable: false } }
+              - column: { name: name, type: VARCHAR(255) }
+              - column: { name: url, type: TEXT }
+              - column: { name: rss_url, type: TEXT }
+              - column: { name: is_active, type: BOOLEAN, defaultValueBoolean: true }
+
+        - createTable:
+            tableName: news_articles
+            columns:
+              - column: { name: id, type: UUID, constraints: { primaryKey: true, nullable: false } }
+              - column:
+                  name: source_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_news_article_source
+                    references: news_sources(id)
+              - column: { name: title, type: TEXT }
+              - column: { name: content, type: TEXT }
+              - column: { name: url, type: TEXT }
+              - column: { name: published_at, type: TIMESTAMP WITH TIME ZONE }
+              - column: { name: parsed_at, type: TIMESTAMP WITH TIME ZONE, defaultValueComputed: CURRENT_TIMESTAMP }
+
+        - createTable:
+            tableName: summaries
+            columns:
+              - column: { name: id, type: UUID, constraints: { primaryKey: true, nullable: false } }
+              - column:
+                  name: article_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_summary_article
+                    references: news_articles(id)
+              - column: { name: summary_text, type: TEXT }
+              - column: { name: generated_at, type: TIMESTAMP WITH TIME ZONE, defaultValueComputed: CURRENT_TIMESTAMP }
+
+        - createTable:
+            tableName: related_articles
+            columns:
+              - column: { name: id, type: UUID, constraints: { primaryKey: true, nullable: false } }
+              - column:
+                  name: article_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_related_article_base
+                    references: news_articles(id)
+              - column:
+                  name: related_article_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_related_article_target
+                    references: news_articles(id)
+              - column:
+                  name: similarity_score
+                  type: "DECIMAL(5,4)"
+
+        - createTable:
+            tableName: user_preferences
+            columns:
+              - column: { name: id, type: UUID, constraints: { primaryKey: true, nullable: false } }
+              - column:
+                  name: user_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_user_pref_user
+                    references: users(id)
+              - column:
+                  name: source_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_user_pref_source
+                    references: news_sources(id)

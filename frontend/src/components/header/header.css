@@ -8,8 +8,9 @@
 }
 
 .eye-icon {
-  width: 70px;
-  height: 70px;
+  padding-top: 10px;
+  width: 100px;
+  height: 100px;
   object-fit: contain;
   transition: all 0.3s ease;
   z-index: 1;
